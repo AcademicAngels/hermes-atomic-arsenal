@@ -1,4 +1,6 @@
-# Hermes Local Plugins
+# Hermes Atomic Arsenal
+
+Hermes 原子武器库。
 
 Local plugin pack for Hermes Agent extensions.
 
