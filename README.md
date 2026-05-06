@@ -9,6 +9,14 @@ plugin pack because Hermes currently installs one plugin per Git repository via
 `hermes plugins install`, while this project is meant to carry multiple local
 extensions over time.
 
+## Project Principle
+
+This project keeps local extensions outside the `hermes-agent` source tree so
+Hermes can continue to follow upstream updates cleanly. Add local capabilities
+here as plugins; do not patch `hermes-agent` for site-specific behavior.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development rule.
+
 ## Plugins
 
 - `openai-compatible`: image generation backend that uses an endpoint from
