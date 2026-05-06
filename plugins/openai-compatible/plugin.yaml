@@ -1,0 +1,5 @@
+name: openai-compatible
+version: 1.0.0
+description: "OpenAI-compatible image generation backend using an endpoint from custom_providers."
+author: local
+kind: backend
