@@ -23,6 +23,24 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development rule.
   Hermes `custom_providers`, such as `custom:ttp`, through an OpenAI-compatible
   Images API.
 
+## Skills
+
+- `team-ralph-loop`: reads local Ralph Loop templates for Hermes team-mode
+  Kanban tasks without requiring Hermes core changes.
+
+## Ralph Loop Templates
+
+Ralph Loop templates live under `loops/<name>/RALPH.md`. They are local,
+reviewable task-loop instructions for worker/reviewer profiles. They do not
+replace Hermes Kanban, Profiles, or Dispatcher, and they are not native Hermes
+runtime dependencies.
+
+Initial templates:
+
+- `bug-hunter`: bounded bug investigation and fix loop.
+- `review-release`: reviewer/release validation loop.
+- `docs-maintainer`: documentation decision and runbook maintenance loop.
+
 ## Install
 
 From this repository:
@@ -35,6 +53,18 @@ Install only one plugin:
 
 ```bash
 python3 scripts/install.py openai-compatible --home /home/hermes_data --force --enable
+```
+
+Install skills and Ralph Loop templates:
+
+```bash
+python3 scripts/install.py --home /home/hermes_data --force --skip-plugins --skills --loops
+```
+
+Install everything carried by this repository:
+
+```bash
+python3 scripts/install.py --home /home/hermes_data --force --enable --all-assets
 ```
 
 Then configure Hermes:
@@ -85,3 +115,19 @@ Add a new directory under `plugins/<plugin-name>/` with:
 - `__init__.py`
 
 The install script automatically discovers plugin directories with both files.
+
+## Add A Skill
+
+Add a new directory under `skills/<skill-name>/` with:
+
+- `SKILL.md`
+
+## Add A Ralph Loop
+
+Add a new directory under `loops/<loop-name>/` with:
+
+- `RALPH.md`
+
+Ralph Loop templates should be task-specific and concise. Keep coordination
+state in Hermes Kanban; keep the template focused on iteration steps,
+verification commands, completion criteria, and handoff fields.
